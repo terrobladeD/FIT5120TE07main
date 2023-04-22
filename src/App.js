@@ -1,11 +1,11 @@
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { Route, BrowserRouter as Router, Routes } from 'react-router-dom';
-import Header from './components/Header.js';
-import Home from './pages/Home.js';
-import JobCheck from './pages/JobCheck.js';
-import IndustryAnalysis from './pages/IndustryAnalysis.js';
-import ResumeCheck from './pages/ResumeCheck.js';
-import SuperPlan from './pages/SuperPlan.js';
+import Header from './components/global/Header.js';
+import Home from './components/pages/Home.js';
+import JobCheck from './components/pages/JobCheck.js';
+import IndustryAnalysis from './components/pages/IndustryAnalysis.js';
+import ResumeCheck from './components/pages/ResumeCheck.js';
+import SuperPlan from './components/pages/IndustryAnalysis.js';
 
 function App() {
   return (

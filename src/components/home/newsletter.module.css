@@ -1,0 +1,67 @@
+.newsletterBox {
+    display: grid;
+    gap: 30px;
+    text-align: center;
+}
+
+.newsletterBox h3 {
+    font-weight: 700;
+    font-size: 36px;
+    line-height: 45px;
+    text-align: center;
+    letter-spacing: 0.02em;
+    color: #fafafa;
+}
+
+.newsletterBox p {
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 167%;
+    text-align: center;
+    color: #f9f9fa;
+    width: 80%;
+    margin: 0 auto;
+}
+
+.subsciptionBox {
+    position: relative;
+}
+
+.subsciptionBox .subInput {
+    background: #fafafa;
+    border-radius: 6px;
+    padding: 18px;
+}
+
+.newsletterBox button {
+    position: absolute;
+    top: 4px;
+    right: 5px;
+}
+
+.newsletterBox button:hover {
+    color: #fff;
+    background: var(--bs-pink);
+}
+
+@media screen and (max-width: 1200px) {
+    .newsletterBox {
+        gap: 25px;
+    }
+    .newsletterBox h3 {
+        font-size: 30px;
+        line-height: 40px;
+    }
+}
+
+@media screen and (max-width: 992px) {
+    .subsciptionBox .subInput {
+        padding: 14px;
+    }
+}
+@media screen and (max-width: 768px) {
+    .subsciptionBox {
+        width: 80%;
+        margin: 0 auto;
+    }
+}
