@@ -14,23 +14,23 @@ function Portfolio() {
     const portfolios = [
         {
             img: portfolio_1,
-            tag: 'Career Insights',
-            title: 'Job Matching',
+            tag: 'Retirement Planning',
+            title: 'Investment Strategies',
         },
         {
             img: portfolio_2,
-            tag: 'Skill Development',
-            title: 'Skill Recommendations',
+            tag: 'Financial Management',
+            title: 'Savings Optimization',
         },
         {
             img: portfolio_3,
-            tag: 'Growth Opportunities',
-            title: 'Career Pathways',
+            tag: 'Risk Assessment',
+            title: 'Asset Protection',
         },
         {
             img: portfolio_4,
-            tag: 'Industry Trends',
-            title: 'Future Job Prospects',
+            tag: 'Pension Solutions',
+            title: 'Annuity Options',
         }
     ]
     const navigate = useNavigate();
@@ -40,15 +40,15 @@ function Portfolio() {
                 <Row>
                     <Col lg={5} md={7} sm={10}>
                         <div className="sectionTopDescription topSide">
-                            <span className="shape">Job Check</span>
-                            <h2>Discover Your Potential</h2>
+                            <span className="shape">SuperPlan</span>
+                            <h2>Secure Your Future</h2>
                             <p>
-                                Uncover valuable insights into your current job or interests, and receive personalized suggestions for skills development and potential job opportunities. Stay ahead in your career with guidance tailored to your unique goals and aspirations.
+                                Ensure a comfortable retirement with SuperPlan, a personalized superannuation strategy designed to help you maximize your savings and investments. Achieve financial stability and peace of mind as you transition into your golden years, knowing you're well-prepared for the journey ahead.
                             </p>
                             <button
                                 type="button"
                                 onClick={() => {
-                                    navigate('/portfoliothree');
+                                    navigate('/super-plan');
                                 }}
                                 className="readMoreBtn pink mt-lg-4"
                             >
