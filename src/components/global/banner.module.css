@@ -1,0 +1,84 @@
+.topBanner {
+    min-height: 60vh;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: relative;
+}
+
+.overlay {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: #000;
+    opacity: 0.4;
+}
+
+.bannerTitle h2 {
+    font-weight: 800;
+    font-size: 52px;
+    line-height: 72px;
+    letter-spacing: 0.02em;
+    text-transform: capitalize;
+    color: #fff;
+}
+
+.bannerTitle span {
+    color: #fff;
+}
+
+.bannerBreadcrumb {
+    padding-top: 30px;
+}
+
+.bannerBreadcrumb nav ol {
+    background-color: transparent;
+}
+
+.breadcrumbItem a {
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 26px;
+    text-align: center;
+    color: #ffffff;
+}
+
+.bannerTitle {
+    z-index: 111;
+    z-index: 111;
+    justify-content: center;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.breadcrumbItem.active {
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 26px;
+    text-align: center;
+    color: #ffffff;
+}
+
+.breadcrumbItem + .breadcrumbItem::before {
+    color: #fff;
+}
+
+/* Responsive Start */
+@media screen and (max-width: 1440px) {
+    .bannerTitle h2 {
+        font-size: 50px;
+        line-height: 70px;
+    }
+
+    .bannerTitle span {
+        margin-bottom: 10px;
+    }
+}
+@media screen and (max-width: 992px) {
+    .bannerTitle h2 {
+        font-size: 32px;
+        line-height: 46px;
+    }
+}
+/* Responsive End */
