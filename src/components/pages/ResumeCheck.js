@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Container, Row, Col, Button } from 'react-bootstrap';
+import { Row, Col, Button } from 'react-bootstrap';
 import Banner from '../global/Banner';
 import { bannerBg } from '../../assets/img';
 
@@ -35,31 +35,41 @@ const ResumeCheck = () => {
         smTitle="Improve your chances of success"
         breadcrumb="Resume Check"
         aBackgroundImage={bannerBg}
-      />
-      <Container>
-        <Row>
-          <Col>
-            <h3>Upload your resume</h3>
-            <p>Accepted formats: Word (.doc, .docx) or PDF (.pdf)</p>
-            <form onSubmit={handleSubmit}>
-              <div>
-                <label htmlFor="fileUpload">Upload your resume:</label>
-                <input
-                  type="file"
-                  id="fileUpload"
-                  name="file"
-                  accept=".doc,.docx,.pdf"
-                  onChange={handleFileChange}
-                  required
-                />
-              </div>
-              <Button variant="primary" type="submit">
-                Submit
-              </Button>
-            </form>
-          </Col>
-        </Row>
-      </Container>
+      >
+        <div
+          style={{
+            display: 'flex',
+            flexDirection: 'column',
+            alignItems: 'center',
+            border: '20px solid white',
+            borderRadius: '10px',
+            backgroundColor: 'white',
+          }}
+        >
+          <Row>
+            <Col>
+              <h3>Upload your resume</h3>
+              <p>Accepted formats: Word (.doc, .docx) or PDF (.pdf)</p>
+              <form onSubmit={handleSubmit}>
+                <div>
+                  <label htmlFor="fileUpload">Upload your resume:</label>
+                  <input
+                    type="file"
+                    id="fileUpload"
+                    name="file"
+                    accept=".doc,.docx,.pdf"
+                    onChange={handleFileChange}
+                    required
+                  />
+                </div>
+                <Button variant="primary" type="submit">
+                  Submit
+                </Button>
+              </form>
+            </Col>
+          </Row>
+        </div>
+      </Banner>
     </>
   );
 };

@@ -1,7 +1,7 @@
 import React from 'react';
 import { Container, Row, Col, Button } from 'react-bootstrap';
 
-const IndustryAnalysis = () => {
+const InfoCenter = () => {
   return (
     <Container>
       <Row>
@@ -14,4 +14,4 @@ const IndustryAnalysis = () => {
   );
 };
 
-export default IndustryAnalysis;
+export default InfoCenter;

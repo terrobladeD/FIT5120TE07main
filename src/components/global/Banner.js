@@ -5,14 +5,14 @@ import Breadcrumb from 'react-bootstrap/Breadcrumb';
 import classes from './banner.module.css';
 
 function Banner(props) {
-    const { pageTitle, smTitle, breadcrumb, aBackgroundImage} = props;
+    const { pageTitle, smTitle, breadcrumb, aBackgroundImage } = props;
     return (
         <div
             className={`${classes.topBanner} mb-5`}
             style={{ backgroundImage: `url(${aBackgroundImage})` }}
         >
             <Container>
-                <Row>
+                <Row className="align-items-start">
                     <Col md={8}>
                         <div className={classes.bannerBreadcrumb}>
                             <Breadcrumb className={classes.mainBreadcrumb}>
@@ -27,9 +27,15 @@ function Banner(props) {
                         </div>
                     </Col>
                 </Row>
+                <Row>
+                    <Col md={12} className="d-flex align-items-center justify-content-center">
+                        {props.children}
+                    </Col>
+                </Row>
             </Container>
         </div>
     );
 }
+
 
 export default Banner;

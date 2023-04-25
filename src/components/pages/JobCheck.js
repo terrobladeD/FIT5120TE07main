@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Container, Row, Col, Dropdown, Table } from 'react-bootstrap';
+import { Row, Col, Table, FormControl, ListGroup } from 'react-bootstrap';
 import Banner from '../global/Banner';
 import { bannerBg } from '../../assets/img';
 
@@ -7,7 +7,30 @@ const JobCheck = () => {
   const [jobs, setJobs] = useState([]);
   const [selectedJob, setSelectedJob] = useState('');
   const [jobInfo, setJobInfo] = useState([]);
+  const [searchTerm, setSearchTerm] = useState('');
+  const [filteredJobs, setFilteredJobs] = useState([]);
 
+  const handleInputChange = (e) => {
+    const inputValue = e.target.value;
+    setSearchTerm(inputValue);
+
+    if (inputValue.length > 0) {
+      setFilteredJobs(
+        jobs
+          .filter((job) => job[0].toLowerCase().includes(inputValue.toLowerCase()))
+          .slice(0, 5)
+      );
+    } else {
+      setFilteredJobs([]);
+    }
+  };
+
+  const handleClick = (job) => {
+    setSearchTerm(job);
+    setSelectedJob(job);
+    setFilteredJobs([]);
+    handleSelect(job);
+  };
   useEffect(() => {
     fetch('http://54.252.71.19:5000/joblist')
       .then((response) => response.json())
@@ -21,6 +44,7 @@ const JobCheck = () => {
       .then((data) => setJobInfo(data));
   };
 
+
   return (
     <>
       <Banner
@@ -28,30 +52,39 @@ const JobCheck = () => {
         smTitle="Check if your career is affected"
         breadcrumb="Job Check"
         aBackgroundImage={bannerBg}
-      />
-      <Container>
-        <Row>
-          <Col>
-            <Row>
-              <Col xs="auto" className="my-auto">
-                <div>Please select your job:</div>
-              </Col>
-              <Col xs="auto" >
-                <Dropdown onSelect={handleSelect} >
-                  <Dropdown.Toggle variant="primary" id="dropdown-basic">
-                    {selectedJob || 'Select a Job'}
-                  </Dropdown.Toggle>
-                  <Dropdown.Menu>
-                    {jobs.map((job, index) => (
-                      <Dropdown.Item key={index} eventKey={job[0]}>
+      >
+        <div style={{
+          display: 'flex',
+          flexDirection: 'column',
+          alignItems: 'center',
+          border: '20px solid white',
+          borderRadius: '10px',
+          backgroundColor: 'white',
+        }}>
+          <Row>
+            <Col xs="auto" className="my-auto">
+              <div>Please select your job:</div>
+            </Col>
+            <Col xs="auto">
+              <div style={{ position: 'relative' }}>
+                <FormControl
+                  value={searchTerm}
+                  onChange={handleInputChange}
+                  placeholder="Type your job here"
+                />
+                {filteredJobs.length > 0 && (
+                  <ListGroup style={{ position: 'absolute', zIndex: 1000, width: '100%'}}>
+                    {filteredJobs.map((job, index) => (
+                      <ListGroup.Item key={index} onClick={() => handleClick(job[0])}>
                         {job[0]}
-                      </Dropdown.Item>
+                      </ListGroup.Item>
                     ))}
-                  </Dropdown.Menu>
-                </Dropdown>
-              </Col>
-            </Row>
-
+                  </ListGroup>
+                )}
+              </div>
+            </Col>
+          </Row>
+          <Row style={{paddingTop: '10px' }}>
             {jobInfo.length > 0 && (
               <>
                 <Table striped bordered hover>
@@ -72,11 +105,12 @@ const JobCheck = () => {
                 </Table>
               </>
             )}
-          </Col>
-        </Row>
-      </Container>
+          </Row>
+        </div>
+      </Banner>
     </>
   );
+
 };
 
 export default JobCheck;

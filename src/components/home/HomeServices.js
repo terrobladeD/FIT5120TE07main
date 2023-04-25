@@ -17,17 +17,17 @@ function HomeServices() {
         },
         {
             serviceImg: service_2,
-            serviceTitle: 'Industry Analysis',
-            serviceText:
-                'Stay informed about the latest trends, opportunities, and challenges in your industry to make well-informed decisions.',
-            targetPage: '/industry-analysis',
-        },
-        {
-            serviceImg: service_3,
             serviceTitle: 'Resume Check',
             serviceText:
                 'Optimize your resume with our expert guidance to showcase your skills and experience effectively to potential employers.',
             targetPage: '/resume-check',
+        },
+        {
+            serviceImg: service_3,
+            serviceTitle: 'Info Center',
+            serviceText:
+                'Stay informed about the latest trends, opportunities, and challenges in your industry to make well-informed decisions.',
+            targetPage: '/info-center',
         }
     ];
 

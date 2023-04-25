@@ -2,7 +2,7 @@ import React from 'react';
 import Hero from '../home/Hero';
 import HomeServices from '../home/HomeServices';
 
-import Portfolio from '../home/Portfolio';
+// import Portfolio from '../home/Portfolio';
 
 
 function Home() {
@@ -10,7 +10,7 @@ function Home() {
         <>
             <Hero />
             <HomeServices />
-            <Portfolio />
+            {/* <Portfolio /> */}
 
 
         </>
