@@ -6,6 +6,7 @@ import JobCheck from './components/pages/JobCheck.js';
 import InfoCenter from './components/pages/InfoCenter.js';
 import ResumeCheck from './components/pages/ResumeCheck.js';
 import SuperPlan from './components/pages/SuperPlan.js';
+//jiaming
 
 function App() {
   return (
