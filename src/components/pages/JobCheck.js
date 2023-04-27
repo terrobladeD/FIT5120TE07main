@@ -32,14 +32,14 @@ const JobCheck = () => {
     handleSelect(job);
   };
   useEffect(() => {
-    fetch('http://54.252.71.19:5000/joblist')
+    fetch('http://13.238.245.74:5000/joblist')
       .then((response) => response.json())
       .then((data) => setJobs(data));
   }, []);
 
   const handleSelect = (job) => {
     setSelectedJob(job);
-    fetch(`http://54.252.71.19:5000/jobinfo?job=${encodeURIComponent(job)}`)
+    fetch(`http://13.238.245.74:5000/jobinfo?job=${encodeURIComponent(job)}`)
       .then((response) => response.json())
       .then((data) => setJobInfo(data));
   };

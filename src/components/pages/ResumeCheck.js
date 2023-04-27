@@ -16,7 +16,7 @@ const ResumeCheck = () => {
     formData.append('file', file);
 
     // Dummy API call
-    const response = await fetch('https://api.example.com/upload', {
+    const response = await fetch('http://13.238.245.74:5000/resume', {
       method: 'POST',
       body: formData,
     });
