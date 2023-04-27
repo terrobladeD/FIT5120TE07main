@@ -3,10 +3,9 @@ import { Col, Container, Row } from 'react-bootstrap';
 import {
     dot,
     heroCircle,
-    heroOne_1,
-    heroOne_2,
-    heroOne_lg,
-    hero_img,
+    a1,
+    a2,
+    ai,
     line,
 } from '../../assets/img';
 import classes from './hero.module.css';
@@ -31,11 +30,11 @@ function Hero() {
                             <Row className="mobile-hide">
                                 <div className={`${classes.heroImgWrapper}`}>
                                     <div className={`${classes.smallImg}`}>
-                                        <img src={heroOne_1} alt="" />
-                                        <img src={heroOne_2} alt="" />
+                                        <img src={a1} alt="" />
+                                        <img src={a2} alt="" />
                                     </div>
                                     <div className={`${classes.bigImg}`}>
-                                        <img src={heroOne_lg} alt="" />
+                                        <img src={ai} alt="" />
                                         <img
                                             src={heroCircle}
                                             className={classes.heroCircle}
@@ -45,7 +44,7 @@ function Hero() {
                                 </div>
                             </Row>
                             <div className={`${classes.heroImg} mobile-show`}>
-                                <img src={hero_img} alt="" />
+                                <img src={ai} alt="" />
                             </div>
                         </div>
                     </Col>

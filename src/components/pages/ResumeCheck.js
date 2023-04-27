@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Row, Col, Button } from 'react-bootstrap';
 import Banner from '../global/Banner';
-import { bannerBg } from '../../assets/img';
+import { resumecheck } from '../../assets/img';
 
 const ResumeCheck = () => {
   const [file, setFile] = useState(null);
@@ -34,7 +34,7 @@ const ResumeCheck = () => {
         pageTitle="Optimize Your Resume with AI"
         smTitle="Improve your chances of success"
         breadcrumb="Resume Check"
-        aBackgroundImage={bannerBg}
+        aBackgroundImage={resumecheck}
       >
         <div
           style={{

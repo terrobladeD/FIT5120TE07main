@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Row, Col, Table, FormControl, ListGroup } from 'react-bootstrap';
 import Banner from '../global/Banner';
-import { bannerBg } from '../../assets/img';
+import { jobcheck } from '../../assets/img';
 
 const JobCheck = () => {
   const [jobs, setJobs] = useState([]);
@@ -51,7 +51,7 @@ const JobCheck = () => {
         pageTitle="Explore the Impact of AI on Your Career"
         smTitle="Check if your career is affected"
         breadcrumb="Job Check"
-        aBackgroundImage={bannerBg}
+        aBackgroundImage={jobcheck}
       >
         <div style={{
           display: 'flex',

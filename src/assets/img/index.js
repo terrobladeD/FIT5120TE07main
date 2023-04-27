@@ -57,8 +57,18 @@ import team_3 from './team/team3.jpg';
 import team_4 from './team/team4.jpg';
 import playBg from './video-bg.png';
 import workBg from './working-img.png';
+import resumecheck from './resumecheck.jpg';
+import jobcheck from './jobcheck.jpg';
+import ai from './ai.png';
+import a1 from './a1.png';
+import a2 from './a2.png';
 
 export {
+    a1,
+    a2,
+    ai,
+    jobcheck,
+    resumecheck,
     hero_img,
     port_1,
     port_2,
