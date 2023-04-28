@@ -28,7 +28,7 @@ function Hero() {
                         </div>
                         <div className={`${classes.heroImgBox}`}>
                             <Row className="mobile-hide">
-                                <div className={`${classes.heroImgWrapper}`}>
+                                <div className={`${classes.heroImgWrapper}`} >
                                     <div className={`${classes.smallImg}`}>
                                         <img src={a1} alt="" />
                                         <img src={a2} alt="" />
