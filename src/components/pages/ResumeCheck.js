@@ -5,6 +5,7 @@ import { resumecheck } from '../../assets/img';
 
 const ResumeCheck = () => {
   const [file, setFile] = useState(null);
+  const [result, setResult] = useState(null);
 
   const handleFileChange = (e) => {
     setFile(e.target.files[0]);
@@ -15,16 +16,29 @@ const ResumeCheck = () => {
     const formData = new FormData();
     formData.append('file', file);
 
-    // Dummy API call
     const response = await fetch('http://13.238.245.74:5000/resume', {
       method: 'POST',
       body: formData,
     });
 
     if (response.ok) {
-      console.log('File uploaded successfully');
+      const data = await response.json();
+      setResult(data.result);
     } else {
       console.log('Failed to upload file');
+    }
+  };
+
+  const resultColor = () => {
+    switch (result) {
+      case 'low':
+        return 'green';
+      case 'medium':
+        return 'aqua';
+      case 'high':
+        return 'red';
+      default:
+        return 'black';
     }
   };
 
@@ -66,6 +80,16 @@ const ResumeCheck = () => {
                   Submit
                 </Button>
               </form>
+              {result && (
+                <>
+                  <p style={{ textAlign: 'center' }}>
+                    The risk of your job being replaced is:
+                  </p>
+                  <h2 style={{ textAlign: 'center', color: resultColor() }}>
+                    {result.toUpperCase()}
+                  </h2>
+                </>
+              )}
             </Col>
           </Row>
         </div>
