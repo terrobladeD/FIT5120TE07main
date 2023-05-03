@@ -7,7 +7,7 @@ const InfoCenter = () => {
   useEffect(() => {
     const fetchNews = async () => {
       const response = await fetch(
-        'http://13.238.245.74:5000/news'
+        'https://airevolution.works/api/news'
       );
       const data = await response.json();
       setNewsList(data.articles.slice(0, 5));

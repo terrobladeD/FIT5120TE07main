@@ -16,7 +16,7 @@ const ResumeCheck = () => {
     const formData = new FormData();
     formData.append('file', file);
   
-    const response = await fetch('http://13.238.245.74:5000/resume', {
+    const response = await fetch('https://airevolution.works/api/resume', {
       method: 'POST',
       body: formData,
     });
