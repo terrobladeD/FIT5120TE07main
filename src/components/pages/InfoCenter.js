@@ -7,7 +7,7 @@ const InfoCenter = () => {
   useEffect(() => {
     const fetchNews = async () => {
       const response = await fetch(
-        'https://newsapi.org/v2/everything?q=artificial intelligence&apiKey=0a9a82c94a774f44895d71617d9cca4b'
+        'http://13.238.245.74:5000/news'
       );
       const data = await response.json();
       setNewsList(data.articles.slice(0, 5));

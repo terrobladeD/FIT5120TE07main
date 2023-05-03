@@ -12,7 +12,7 @@ function HomeServices() {
             serviceImg: service_1,
             serviceTitle: 'Job Check',
             serviceText:
-                'Evaluate your current job, interests, and skill set. Receive tailored recommendations to enhance your career.',
+                'Assess your current job, interests, and skill set. Receive personalized recommendations to optimize your career growth.',
             targetPage: '/job-check',
         },
         {

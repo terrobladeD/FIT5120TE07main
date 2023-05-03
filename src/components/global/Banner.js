@@ -1,4 +1,3 @@
-/* eslint-disable import/named */
 import React from 'react';
 import { Col, Container, Row } from 'react-bootstrap';
 import Breadcrumb from 'react-bootstrap/Breadcrumb';
@@ -11,9 +10,9 @@ function Banner(props) {
             className={`${classes.topBanner} mb-5`}
             style={{ backgroundImage: `url(${aBackgroundImage})` }}
         >
-            <Container>
+            <Container className={classes.containerScrollable}>
                 <Row className="align-items-start">
-                    <Col md={8}>
+                    <Col md={12}>
                         <div className={classes.bannerBreadcrumb}>
                             <Breadcrumb className={classes.mainBreadcrumb}>
                                 <Breadcrumb.Item className={classes.breadcrumbItem} href="#">
@@ -36,6 +35,5 @@ function Banner(props) {
         </div>
     );
 }
-
 
 export default Banner;
