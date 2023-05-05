@@ -12,20 +12,24 @@ import {
 import classes from './hero.module.css';
 
 const questions = [
+    // Add yesLink and noAction properties to each question object
     {
         id: 1,
-        question: 'Do you want to check the impact of AI on your job?',
-        link: '/job-check',
+        question: 'Have you want to know the trend of AI?',
+        yesLink: '/info-center',
+        noAction: 'next',
     },
     {
         id: 2,
-        question: 'Are you looking for information about AI and employment?',
-        link: '/info-center',
+        question: 'Do you want to know how it affects you?',
+        yesLink: '/job-check',
+        noAction: 'next',
     },
     {
         id: 3,
-        question: 'Do you want to optimize your resume with AI?',
-        link: '/resume-check',
+        question: 'Do you want to know how deeply your career has been affected by AI?',
+        yesLink: '/resume-check',
+        noAction: 'showExploreMessage',
     }
 ];
 
@@ -37,11 +41,12 @@ function Hero() {
 
     const handleYesButtonClick = () => {
         const question = questions[currentQuestionIndex];
-        navigate(question.link);
+        navigate(question.yesLink);
     };
 
     const handleNoButtonClick = () => {
-        if (currentQuestionIndex < questions.length - 1) {
+        const question = questions[currentQuestionIndex];
+        if (question.noAction === 'next') {
             setCurrentQuestionIndex(currentQuestionIndex + 1);
         } else {
             setShowExploreMessage(true);
@@ -94,26 +99,29 @@ function Hero() {
                             </p>
 
                             <div>
-                                {questions.length > 0 && (
-                                    <div className="mb-3">
-                                        <h5>{questions[currentQuestionIndex].question}</h5>
-                                        <Button
-                                            variant="outline-primary"
-                                            onClick={handleYesButtonClick}
-                                            style={{marginRight:'2vw'}}
-                                        >
-                                            Yes
-                                        </Button>
-                                        <Button
-                                            variant="outline-secondary"
-                                            className="ml-2"
-                                            onClick={handleNoButtonClick}
-                                        >
-                                            No
-                                        </Button>
+                                {questions.slice(0, currentQuestionIndex + 1).map((question, index) => (
+                                    <div key={question.id} className="mb-3">
+                                        <h5>{question.question}</h5>
+                                        {index === currentQuestionIndex && (
+                                            <>
+                                                <Button
+                                                    variant="outline-primary"
+                                                    onClick={handleYesButtonClick}
+                                                    style={{ marginRight: '2vw' }}
+                                                >
+                                                    Yes
+                                                </Button>
+                                                <Button
+                                                    variant="outline-secondary"
+                                                    className="ml-2"
+                                                    onClick={handleNoButtonClick}
+                                                >
+                                                    No
+                                                </Button>
+                                            </>
+                                        )}
                                     </div>
-                                )}
-
+                                ))}
                                 {showExploreMessage && (
                                     <h4 >
                                         Please feel free to explore our site.

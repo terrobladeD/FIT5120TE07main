@@ -34,7 +34,7 @@ function Header() {
                         <Link to="/">
                             <img src={logo} alt="logo" style={{ width: '100px', height: '50px', borderRadius: '20px' }} />
                         </Link>
-                        <span style={{paddingLeft:'20px'}}>Tech Titans</span>
+                        {/* <span style={{paddingLeft:'20px'}}>Tech Titans</span> */}
                     </Navbar.Brand>
                     <Navbar.Toggle aria-controls="basic-navbar-nav" />
                     <Navbar.Collapse id="basic-navbar-nav">
