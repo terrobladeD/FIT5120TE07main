@@ -1,6 +1,5 @@
-import React, { useState } from 'react';
-import { Col, Container, Row, Button } from 'react-bootstrap';
-import { useNavigate } from 'react-router-dom';
+import React from 'react';
+import { Col, Container, Row} from 'react-bootstrap';
 import {
     dot,
     heroCircle,
@@ -10,49 +9,9 @@ import {
     line,
 } from '../../assets/img';
 import classes from './hero.module.css';
-
-const questions = [
-    // Add yesLink and noAction properties to each question object
-    {
-        id: 1,
-        question: 'Have you want to know the trend of AI?',
-        yesLink: '/info-center',
-        noAction: 'next',
-    },
-    {
-        id: 2,
-        question: 'Do you want to know how it affects you?',
-        yesLink: '/job-check',
-        noAction: 'next',
-    },
-    {
-        id: 3,
-        question: 'Do you want to know how deeply your career has been affected by AI?',
-        yesLink: '/resume-check',
-        noAction: 'showExploreMessage',
-    }
-];
+import BtnPrimary from '../buttons/BtnPrimary';
 
 function Hero() {
-    const navigate = useNavigate();
-    const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
-    const [showExploreMessage, setShowExploreMessage] = useState(false);
-
-
-    const handleYesButtonClick = () => {
-        const question = questions[currentQuestionIndex];
-        navigate(question.yesLink);
-    };
-
-    const handleNoButtonClick = () => {
-        const question = questions[currentQuestionIndex];
-        if (question.noAction === 'next') {
-            setCurrentQuestionIndex(currentQuestionIndex + 1);
-        } else {
-            setShowExploreMessage(true);
-        }
-    };
-
     return (
         <div id="hero" className="hero pt-100 pb-70 position-relative">
             <img src={dot} className={classes.dot} alt="dot" />
@@ -98,37 +57,11 @@ function Hero() {
                                 The Impact of <span>AI</span> on Employment
                             </p>
 
-                            <div>
-                                {questions.slice(0, currentQuestionIndex + 1).map((question, index) => (
-                                    <div key={question.id} className="mb-3">
-                                        <h5>{question.question}</h5>
-                                        {index === currentQuestionIndex && (
-                                            <>
-                                                <Button
-                                                    variant="outline-primary"
-                                                    onClick={handleYesButtonClick}
-                                                    style={{ marginRight: '2vw' }}
-                                                >
-                                                    Yes
-                                                </Button>
-                                                <Button
-                                                    variant="outline-secondary"
-                                                    className="ml-2"
-                                                    onClick={handleNoButtonClick}
-                                                >
-                                                    No
-                                                </Button>
-                                            </>
-                                        )}
-                                    </div>
-                                ))}
-                                {showExploreMessage && (
-                                    <h4 >
-                                        Please feel free to explore our site.
-                                    </h4>
-                                )}
-                            </div>
+                            <div className="mb-3">
+                                <h5>Do you want to know the latest developments and trends in AI’s?</h5>
 
+                                <BtnPrimary url="/info-center" title="Know More" />
+                            </div>
                         </div>
                     </Col>
                 </Row>

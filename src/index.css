@@ -1,3 +1,12 @@
+/*-----------------------------------------------------------------------------
+
+    Template Name: Ajux - React Js Template
+    Template URI:
+    Description:
+    Author: Devsarray
+    Author URI:  https://themeforest.net/user/devsarray
+    Version: 1.0.2
+
 ----------------------------------------------------------------------------- */
 
 /*
@@ -14,7 +23,7 @@
 /*----------------------------------------------------------------------------
     1.0 - Variables Start
  ----------------------------------------------------------------------------*/
-:root {
+ :root {
     --primaryColor: #d91966;
     --secondaryColor: #fd8b5f;
     --textColor: #2b2c34;
