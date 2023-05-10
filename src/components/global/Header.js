@@ -44,7 +44,6 @@ function Header() {
                             <NavLink className={`nav-link ${location.pathname === '/resume-check' ? 'text-danger' : ''}`} to="/resume-check">Resume Check</NavLink>
                             <NavLink className={`nav-link ${location.pathname === '/info-center' ? 'text-danger' : ''}`} to="/info-center">Info Center</NavLink>
                             <NavLink className={`nav-link ${location.pathname === '/industrial-analysis' ? 'text-danger' : ''}`} to="/industrial-analysis">Industrial Analysis</NavLink>
-                            <NavLink className={`nav-link ${location.pathname === '/super-plan' ? 'text-danger' : ''}`} to="/super-plan">Super Plan</NavLink>
 
                         </Nav>
                     </Navbar.Collapse>

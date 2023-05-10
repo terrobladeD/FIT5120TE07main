@@ -1,12 +1,23 @@
 .containerScrollable {
     /* overflow: auto; */
     padding-bottom: 20px;
-  }
-  
+}
+
+.randomFact {
+    color: white;
+    font-size: 18px;
+    text-align: center;
+    margin-top: auto;
+}
+
+.displayButtom{
+    position: absolute;
+    bottom: 0;
+}
 
 
 .topBanner {
-    min-height: 60vh;
+    min-height: 80vh;
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
@@ -67,7 +78,7 @@
     color: #ffffff;
 }
 
-.breadcrumbItem + .breadcrumbItem::before {
+.breadcrumbItem+.breadcrumbItem::before {
     color: #fff;
 }
 
@@ -82,10 +93,12 @@
         margin-bottom: 10px;
     }
 }
+
 @media screen and (max-width: 992px) {
     .bannerTitle h2 {
         font-size: 32px;
         line-height: 46px;
     }
 }
+
 /* Responsive End */

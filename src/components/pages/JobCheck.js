@@ -52,6 +52,13 @@ const JobCheck = () => {
         smTitle="Check if your career is affected"
         breadcrumb="Job Check"
         aBackgroundImage={jobcheck}
+        randomFacts={[
+          "Do you know that Job Check can help you understand your career's vulnerability to AI advancements?",
+          "Have you considered using Job Check to discover alternative career paths that can maximize your potential?",
+          "Job Check offers personalized insights into the skills required for your current job and other potential job options.",
+          "Are you aware that Job Check can provide you with valuable information to make informed decisions about your career path?",
+          "Have you ever thought about how AI might impact your current job? Job Check can give you the answers you're looking for."
+        ]}
       >
         <div style={{
           display: 'flex',
@@ -73,7 +80,7 @@ const JobCheck = () => {
                   placeholder="Type your job here"
                 />
                 {filteredJobs.length > 0 && (
-                  <ListGroup style={{ position: 'absolute', zIndex: 1000, width: '100%'}}>
+                  <ListGroup style={{ position: 'absolute', zIndex: 1000, width: '100%' }}>
                     {filteredJobs.map((job, index) => (
                       <ListGroup.Item key={index} onClick={() => handleClick(job[0])}>
                         {job[0]}
@@ -84,7 +91,7 @@ const JobCheck = () => {
               </div>
             </Col>
           </Row>
-          <Row style={{paddingTop: '10px' }}>
+          <Row style={{ paddingTop: '10px' }}>
             {jobInfo.length > 0 && (
               <>
                 <Table striped bordered hover>

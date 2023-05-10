@@ -5,7 +5,6 @@ import Home from './components/pages/Home.js';
 import JobCheck from './components/pages/JobCheck.js';
 import InfoCenter from './components/pages/InfoCenter.js';
 import ResumeCheck from './components/pages/ResumeCheck.js';
-import SuperPlan from './components/pages/SuperPlan.js';
 import IndustrialAnalysis from './components/pages/IndustrialAnalysis.js';
 //jiaming
 
@@ -19,7 +18,6 @@ function App() {
         <Route path="/info-center" element={<InfoCenter />} />
         <Route path="/resume-check" element={<ResumeCheck />} />
         <Route path="/industrial-analysis" element={<IndustrialAnalysis />} />
-        <Route path="/super-plan" element={<SuperPlan />} />
 
       </Routes>
     </Router>

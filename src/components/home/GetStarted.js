@@ -22,13 +22,7 @@ const features = [
         title: 'Industrial Analysis',
         question: 'Do you want to analyze the industry?',
         link: '/industrial-analysis',
-    },
-    {
-        id: 4,
-        title: 'Super Plan',
-        question: 'Do you want to explore our Super Plan?',
-        link: '/super-plan',
-    },
+    }
 ];
 
 function GetStarted() {
