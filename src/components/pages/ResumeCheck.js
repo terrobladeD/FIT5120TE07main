@@ -1,13 +1,41 @@
 import React, { useState } from 'react';
-import { Row, Col, Button, ListGroup } from 'react-bootstrap';
+import { Row, Col, Button, ListGroup, Card } from 'react-bootstrap';
 import Banner from '../global/Banner';
 import { resumecheck } from '../../assets/img';
+
+const CourseCard = ({ course }) => {
+  return (
+    <Card className="mb-4">
+      <Row className="align-items-center">
+        <Col xs={4}>
+          <img
+            src={course.image}
+            alt={course.name}
+            style={{ width: '100%', height: '100%', objectFit: 'cover' }}
+          />
+        </Col>
+        <Col xs={8}>
+          <Card.Body>
+            <Card.Title>{course.name}</Card.Title>
+            <Card.Text>{course.headline}</Card.Text>
+            <Button variant="primary" href={course.url} target="_blank">
+              Know More
+            </Button>
+          </Card.Body>
+        </Col>
+      </Row>
+    </Card>
+  );
+};
+
 
 const ResumeCheck = () => {
   const [file, setFile] = useState(null);
   const [result, setResult] = useState(null);
   const [skills, setSkills] = useState([]);
   const [courses, setCourses] = useState([]);
+  const [selectedSkill, setSelectedSkill] = useState(null);
+
 
   const handleFileChange = (e) => {
     setFile(e.target.files[0]);
@@ -44,16 +72,16 @@ const ResumeCheck = () => {
       .then((data) => {
         if (data.result.length > 0) {
           setSkills(data.result);
-          // 调用获取课程的 API
-          data.result.forEach((skill) => {
-            fetch(`https://example.com/api/courses?skill=${encodeURIComponent(skill)}`)
-              .then((response) => response.json())
-              .then((courseData) => {
-                setCourses((prevCourses) => [...prevCourses, ...courseData]);
-              });
-          });
+          setTimeout(() => {
+            const currentScrollY = window.scrollY;
+            window.scrollTo({
+              top: currentScrollY + 300,
+              behavior: 'smooth'
+            });
+          }, 500);
+          
         } else {
-          console.log('出错了，请重试。');
+          console.log('skills error。');
         }
       });
   };
@@ -72,6 +100,25 @@ const ResumeCheck = () => {
     } else {
       return 'black';
     }
+  };
+
+  const handleSkillClick = (skill) => {
+    setCourses([]);
+    setSelectedSkill(skill);
+    fetch(`https://airevolution.works/api/course?skill=${encodeURIComponent(skill)}`, {
+    })
+      .then((response) => response.json())
+      .then((data) => {
+        setCourses(data);
+        setTimeout(() => {
+          const currentScrollY = window.scrollY;
+          window.scrollTo({
+            top: currentScrollY + 300,
+            behavior: 'smooth'
+          });
+        }, 500);
+      })
+
   };
 
   return (
@@ -128,20 +175,46 @@ const ResumeCheck = () => {
               )}
             </Col>
           </Row>
-          {skills.length > 0 && courses.length > 0 && (
-            <Row>
-              <Col>
-                <h4>Recommended Courses</h4>
-                <ListGroup>
-                  {courses.slice(0, 5).map((course, index) => (
-                    <ListGroup.Item key={index}>{course.title}</ListGroup.Item>
-                  ))}
-                </ListGroup>
-              </Col>
-            </Row>
-          )}
+
         </div>
       </Banner>
+      <div style={{ margin: '8px' }}>
+        {skills.length > 0 ? (
+          <Row>
+            <Col>
+              <h4>Your Skills are the Following</h4>
+              <div style={{ display: 'flex', flexWrap: 'wrap', justifyContent: 'center' }}>
+                {skills.map((skill, index) => (
+                  <Button key={index} variant="outline-primary" onClick={() => handleSkillClick(skill)} style={{ margin: '5px' }}>
+                    {skill}
+                  </Button>
+                ))}
+              </div>
+            </Col>
+          </Row>
+        ) : (
+          <div style={{ justifyContent: 'center' }}> No skills setracted. Please use another resume.</div>
+        )}
+
+        {selectedSkill && courses.length > 0 ? (
+          <Row>
+            <Col>
+              <h4>Recommended Courses for {selectedSkill}</h4>
+              <ListGroup>
+                {courses.map((course, index) => (
+                  <ListGroup.Item key={index}>
+                    <CourseCard course={course} />
+                  </ListGroup.Item>
+                ))}
+              </ListGroup>
+            </Col>
+          </Row>
+        ) : (
+          skills.length > 0 && <p>Select a skill to view recommended courses.</p>
+        )}
+      </div>
+
+
     </>
   );
 };
