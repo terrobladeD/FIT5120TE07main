@@ -105,8 +105,8 @@ const JobCheck = () => {
                   <tbody>
                     <tr>
                       <td>{selectedJob}</td>
-                      <td>{jobInfo.slice(0, 3).join(', ')}</td>
-                      <td>{jobInfo.slice(3).join(', ')}</td>
+                      <td>{jobInfo.slice(1, 4).join(', ')}</td>
+                      <td>{jobInfo.slice(4).join(', ')}</td>
                     </tr>
                   </tbody>
                 </Table>
