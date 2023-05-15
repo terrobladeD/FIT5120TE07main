@@ -2,7 +2,7 @@ import React, { useState, useRef, useEffect } from 'react';
 import { Container, Row, Col, ListGroup, FormControl } from 'react-bootstrap';
 import Banner from '../global/Banner';
 import { Chart, registerables } from 'chart.js';
-import { jobcheck } from '../../assets/img';
+import { industrialanalysis } from '../../assets/img';
 
 Chart.register(...registerables);
 
@@ -118,7 +118,7 @@ const IndustrialAnalysis = () => {
       pageTitle="Industrial Analysis"
       smTitle="Explore the Future of Your Profession"
       breadcrumb="Industrial Analysis"
-      aBackgroundImage={jobcheck}
+      aBackgroundImage={industrialanalysis}
       randomFacts={randomFacts}
     >
       <Container>

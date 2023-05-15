@@ -59,6 +59,7 @@ import playBg from './video-bg.png';
 import workBg from './working-img.png';
 import resumecheck from './resumecheck.jpg';
 import jobcheck from './jobcheck.jpg';
+import industrialanalysis from './industrialanalysis.png';
 import ai from './ai.png';
 import a1 from './a1.png';
 import a2 from './a2.png';
@@ -69,6 +70,7 @@ export {
     ai,
     jobcheck,
     resumecheck,
+    industrialanalysis,
     hero_img,
     port_1,
     port_2,
