@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { Col, Container, Row } from 'react-bootstrap';
 import Breadcrumb from 'react-bootstrap/Breadcrumb';
 import classes from './banner.module.css';
@@ -6,14 +6,19 @@ import classes from './banner.module.css';
 function Banner(props) {
   const { pageTitle, smTitle, breadcrumb, aBackgroundImage, randomFacts } = props;
 
-  const getRandomFact = () => {
-    const randomIndex = Math.floor(Math.random() * randomFacts.length);
-    return randomFacts[randomIndex];
-  };
+  const [randomFact, setRandomFact] = useState('');
+
+  useEffect(() => {
+    if (randomFacts) {
+      const randomIndex = Math.floor(Math.random() * randomFacts.length);
+      setRandomFact(randomFacts[randomIndex]);
+    }
+  }, [randomFacts]);
+
 
   return (
     <div
-      className={`${classes.topBanner} mb-5`}
+      className={`${classes.topBanner}`}
       style={{ backgroundImage: `url(${aBackgroundImage})` }}
     >
       <Container className={classes.containerScrollable}>
@@ -37,10 +42,10 @@ function Banner(props) {
             {props.children}
           </Col>
         </Row>
-        {randomFacts && (
+        {randomFact && (
           <Row className={classes.displayButtom}>
             <Col md={12} className="d-flex align-items-center justify-content-center mt-3">
-              <p className={classes.randomFact}>{getRandomFact()}</p>
+              <p className={classes.randomFact}>{randomFact}</p>
             </Col>
           </Row>
         )}

@@ -2,6 +2,13 @@ import React, { useState, useEffect } from 'react';
 import { Row, Col, Table, FormControl, ListGroup } from 'react-bootstrap';
 import Banner from '../global/Banner';
 import { jobcheck } from '../../assets/img';
+const randomFacts = [
+  "Do you know that Job Check can help you understand your career's vulnerability to AI advancements?",
+  "Have you considered using Job Check to discover alternative career paths that can maximize your potential?",
+  "Job Check offers personalized insights into the skills required for your current job and other potential job options.",
+  "Are you aware that Job Check can provide you with valuable information to make informed decisions about your career path?",
+  "Have you ever thought about how AI might impact your current job? Job Check can give you the answers you're looking for."
+];
 
 const JobCheck = () => {
   const [jobs, setJobs] = useState([]);
@@ -52,13 +59,7 @@ const JobCheck = () => {
         smTitle="Check if your career is affected"
         breadcrumb="Job Check"
         aBackgroundImage={jobcheck}
-        randomFacts={[
-          "Do you know that Job Check can help you understand your career's vulnerability to AI advancements?",
-          "Have you considered using Job Check to discover alternative career paths that can maximize your potential?",
-          "Job Check offers personalized insights into the skills required for your current job and other potential job options.",
-          "Are you aware that Job Check can provide you with valuable information to make informed decisions about your career path?",
-          "Have you ever thought about how AI might impact your current job? Job Check can give you the answers you're looking for."
-        ]}
+        randomFacts={randomFacts}
       >
         <div style={{
           display: 'flex',

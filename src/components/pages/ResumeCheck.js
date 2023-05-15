@@ -79,7 +79,7 @@ const ResumeCheck = () => {
               behavior: 'smooth'
             });
           }, 500);
-          
+
         } else {
           console.log('skills error。');
         }
@@ -192,7 +192,7 @@ const ResumeCheck = () => {
               </div>
             </Col>
           </Row>
-        ) : (
+        ) : result !== null && (
           <div style={{ justifyContent: 'center' }}> No skills setracted. Please use another resume.</div>
         )}
 
