@@ -4,7 +4,7 @@ import Breadcrumb from 'react-bootstrap/Breadcrumb';
 import classes from './banner.module.css';
 
 function Banner(props) {
-  const { pageTitle, smTitle, breadcrumb, aBackgroundImage, randomFacts } = props;
+  const { pageTitle, smTitle, breadcrumb, aBackgroundImage, randomFacts,bannerColor } = props;
 
   const [randomFact, setRandomFact] = useState('');
 
@@ -45,7 +45,7 @@ function Banner(props) {
         {randomFact && (
           <Row className={classes.displayButtom}>
             <Col md={12} className="d-flex align-items-center justify-content-center mt-3">
-              <p className={classes.randomFact}>{randomFact}</p>
+              <p className={classes.randomFact} style={{color:bannerColor}}>{randomFact}</p>
             </Col>
           </Row>
         )}

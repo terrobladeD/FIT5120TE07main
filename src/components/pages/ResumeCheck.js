@@ -94,7 +94,7 @@ const ResumeCheck = () => {
     if (result.includes('LOW')) {
       return 'green';
     } else if (result.includes('MID')) {
-      return 'aqua';
+      return 'orange';
     } else if (result.includes('HIGH')) {
       return 'red';
     } else {
@@ -132,6 +132,7 @@ const ResumeCheck = () => {
           "Do you know that Resume Check can help you optimize your resume to improve your chances of landing your dream job?",
           "Have you considered using Resume Check to identify the top skills you possess and how they can be highlighted in your resume?", "Are you aware that Resume Check uses AI to analyze your resume and provide feedback on how to improve it?", "Have you ever thought about the importance of having a well-optimized resume? Resume Check can be your key to success.", "Do you know that Resume Check can provide course recommendations based on your top skills to help you excel in your career?"
         ]}
+        bannerColor="grey"
       >
         <div
           style={{
@@ -168,9 +169,16 @@ const ResumeCheck = () => {
                   <h4 style={{ textAlign: 'center', color: resultColor() }}>
                     {result.toUpperCase()}
                   </h4>
-                  <Button variant="primary" onClick={handleAccept}>
-                    Accept Recommendations
-                  </Button>
+                  {(result.includes('LOW') || result.includes('MID') || result.includes('HIGH')) &&
+                    (
+                      <span>
+                        <span>Do you want to receive more learning resources relates to your skills?</span>
+
+                        <Button style={{marginLeft:'10px'}}variant="primary" onClick={handleAccept}>
+                          Yes Please
+                        </Button>
+                      </span>
+                    )}
                 </>
               )}
             </Col>

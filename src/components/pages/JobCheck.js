@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from 'react';
-import { Row, Col, Table, FormControl, ListGroup } from 'react-bootstrap';
+import { Row, Col, Table, FormControl, ListGroup, Button } from 'react-bootstrap';
 import Banner from '../global/Banner';
 import { jobcheck } from '../../assets/img';
+import { Link } from 'react-router-dom'; 
 const randomFacts = [
   "Do you know that Job Check can help you understand your career's vulnerability to AI advancements?",
   "Have you considered using Job Check to discover alternative career paths that can maximize your potential?",
@@ -98,8 +99,8 @@ const JobCheck = () => {
                 <Table striped bordered hover>
                   <thead>
                     <tr>
-                      <th>Job</th>
-                      <th>Skills</th>
+                      <th>Current Job</th>
+                      <th>Future Skills</th>
                       <th>Potential Jobs</th>
                     </tr>
                   </thead>
@@ -111,6 +112,9 @@ const JobCheck = () => {
                     </tr>
                   </tbody>
                 </Table>
+                <Link to="/resume-check">
+                <Button variant="primary">Go to Resume Check</Button>
+              </Link>
               </>
             )}
           </Row>
