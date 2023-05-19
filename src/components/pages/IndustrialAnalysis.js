@@ -3,6 +3,7 @@ import { Container, Row, Col, ListGroup, FormControl } from 'react-bootstrap';
 import Banner from '../global/Banner';
 import { Chart, registerables } from 'chart.js';
 import { industrialanalysis } from '../../assets/img';
+// import 'chartjs-plugin-datasource';
 
 Chart.register(...registerables);
 
@@ -55,11 +56,11 @@ const IndustrialAnalysis = () => {
 
   useEffect(() => {
     const selectedData = data.find((item) => item[0] === selectedOption);
-
+  
     if (!selectedData) {
       return;
     }
-
+  
     const chartData = {
       labels: [
         'Nov-11',
@@ -73,22 +74,31 @@ const IndustrialAnalysis = () => {
         'Nov-19',
         'Nov-20',
         'Nov-21',
+        'Projected(2026)', // Added label for the future point
       ],
       datasets: [
         {
           label: selectedData[0],
-          data: selectedData.slice(1, 12),
+          data: [...selectedData.slice(1, 11), selectedData[11]], // Include the values in the data array
           borderColor: 'rgba(75, 192, 192, 1)',
           borderWidth: 1,
           fill: false,
         },
+        {
+          label: `Projected Growth (${selectedData[14]}%)`, // Label for the dotted line
+          data: Array(10).fill(null).concat(selectedData[11], selectedData[12]), // Create an array with null values, the selectedData[11] value, and the selectedData[12] value
+          borderColor: 'rgba(255, 0, 0, 1)', // Transparent color for the dotted line
+          borderWidth: 1,
+          borderDash: [5, 5], // Make the line dashed
+          fill: false,
+        },
       ],
     };
-
+  
     if (chart) {
       chart.destroy();
     }
-
+  
     const ctx = chartRef.current.getContext('2d');
     const newChart = new Chart(ctx, {
       type: 'line',
@@ -97,19 +107,41 @@ const IndustrialAnalysis = () => {
         responsive: true,
         maintainAspectRatio: false,
         scales: {
+          x: {
+            title: {
+              display: true,
+              text: 'Year',
+            },
+          },
           y: {
-            beginAtZero: true,
+            title: {
+              display: true,
+              text: 'Number of Jobs',
+            },
           },
         },
+        plugins: {
+          tooltip: {
+            enabled: true,
+            intersect: false,
+            mode: 'point',
+          },
+        },
+        interaction: {
+          mode: 'chartData',
+          axis : 'y'
+        },
+        backgroundColor: 'white',
       },
     });
-
+  
     setChart(newChart);
-
+  
     return () => {
       newChart.destroy();
     };
   }, [selectedOption, data, chart]);
+  
 
   const selectedData = data.find((item) => item[0] === selectedOption);
 
@@ -120,6 +152,7 @@ const IndustrialAnalysis = () => {
       breadcrumb="Industrial Analysis"
       aBackgroundImage={industrialanalysis}
       randomFacts={randomFacts}
+      bannerColor="purple"
     >
       <Container>
         <Row>
@@ -156,7 +189,7 @@ const IndustrialAnalysis = () => {
             {selectedData && (
               <div style={{ backgroundColor: 'white', marginTop:'20px'}}>
                 <p>
-                  For {selectedData[0]} the projected growth in number of jobs  in the next five year in Australia is {selectedData[12]}% and it has {selectedData[13]}  market growth in coming years
+                  For {selectedData[0]} the projected growth in number of jobs  in the next five year in Australia is {selectedData[14]}% and it has {selectedData[13]}  market growth in coming years
                 </p>
                 <canvas ref={chartRef}  />
               </div>

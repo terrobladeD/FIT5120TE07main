@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { Row, Col, Table, FormControl, ListGroup, Button } from 'react-bootstrap';
 import Banner from '../global/Banner';
 import { jobcheck } from '../../assets/img';
-import { Link } from 'react-router-dom'; 
+import { Link } from 'react-router-dom';
 const randomFacts = [
   "Do you know that Job Check can help you understand your career's vulnerability to AI advancements?",
   "Have you considered using Job Check to discover alternative career paths that can maximize your potential?",
@@ -112,9 +112,12 @@ const JobCheck = () => {
                     </tr>
                   </tbody>
                 </Table>
-                <Link to="/resume-check">
-                <Button variant="primary">Go to Resume Check</Button>
-              </Link>
+                <span>
+                  <span>Check your Resume for further feedback &nbsp;&nbsp;&nbsp;</span>
+                  <Link to="/resume-check">
+                    <Button variant="primary">Go to Resume Check</Button>
+                  </Link></span>
+
               </>
             )}
           </Row>
