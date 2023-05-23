@@ -10,8 +10,9 @@ function Home() {
     return (
         <>
             <Hero />
-            <GetStarted />
             <HomeServices />
+            <GetStarted />
+            
             {/* <Portfolio /> */}
 
 

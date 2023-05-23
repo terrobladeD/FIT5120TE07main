@@ -152,7 +152,7 @@ const IndustrialAnalysis = () => {
       breadcrumb="Industrial Analysis"
       aBackgroundImage={industrialanalysis}
       randomFacts={randomFacts}
-      bannerColor="purple"
+      bannerColor="orange"
     >
       <Container>
         <Row>
