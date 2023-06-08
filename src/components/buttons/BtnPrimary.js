@@ -10,7 +10,7 @@ function BtnPrimary({ title, icon, url, onClick }) {
       );
     } else if (onClick) {
       return (
-        <button className="btnPrimary" onClick={onClick}>
+        <button className="btnPrimary" style={{padding:'8px 16px'}} onClick={onClick}>
           {title} <span className="ml-2">{icon}</span>
         </button>
       );

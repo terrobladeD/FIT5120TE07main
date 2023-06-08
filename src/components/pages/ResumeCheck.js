@@ -161,7 +161,7 @@ const ResumeCheck = () => {
                     required
                   />
                 </div>
-                <BtnPrimary style={{padding:'8px 16px'}}title="Submit" onClick={handleSubmit} />
+                <BtnPrimary style={{padding:'8px 16px'}} title="Submit" onClick={handleSubmit} />
               </form>
               {result && (
                 <>
@@ -173,7 +173,7 @@ const ResumeCheck = () => {
                       <span>
                         <span>Do you want to receive more learning resources relates to your skills?</span>
                         &nbsp;&nbsp;&nbsp;&nbsp;
-                        <BtnPrimary style={{padding:'8px 16px'}} title="Yes Please" onClick={handleAccept} />
+                        <BtnPrimary style={{padding:'8px 16px 8px 16px'}} title="Yes Please" onClick={handleAccept} />
                       </span>
                     )}
                 </>
